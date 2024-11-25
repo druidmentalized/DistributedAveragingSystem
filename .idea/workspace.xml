@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="69cc3e4f-63c0-485f-9ce6-5d3939a7e0bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAS/DAS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAS/DAS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "druidmentalized"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/druidmentalized/DistributedAveragingSystem",
+    "accountId": "e467efcf-d3b9-4992-8277-e17d964c4ed9"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -47,6 +60,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propGUI",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -56,7 +70,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Run" type="Application" factoryName="Application" singleton="false">
+    <configuration name="RunMaster" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="DAS.DAS" />
       <module name="DistributedAveragingSystem" />
       <option name="PROGRAM_PARAMETERS" value="5058 100" />
@@ -68,8 +82,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -85,6 +99,7 @@
       <workItem from="1732463349648" duration="2227000" />
       <workItem from="1732465750562" duration="35000" />
       <workItem from="1732466393218" duration="536000" />
+      <workItem from="1732526297384" duration="3541000" />
     </task>
     <task id="LOCAL-00001" summary="Program fully made">
       <option name="closed" value="true" />

@@ -7,6 +7,9 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.ArrayList;
 
+//TODO make counting of the local broadcast address with your ip and mask
+//TODO test the broadcasting with the multiple machines(or make it using the virtual machine)
+
 public class DAS {
     private static final String BROADCAST_ADDRESS = "255.255.255.255";
 
@@ -116,7 +119,6 @@ public class DAS {
         catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private void slaveMode(int port, int number) {
