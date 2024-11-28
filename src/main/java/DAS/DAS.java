@@ -1,17 +1,10 @@
 package DAS;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
+import java.net.*;
 import java.util.ArrayList;
 
-//TODO make counting of the local broadcast address with your ip and mask
-//TODO test the broadcasting with the multiple machines(or make it using the virtual machine)
-
 public class DAS {
-    private static final String BROADCAST_ADDRESS = "255.255.255.255";
 
     public static void main(String[] args) {
         //checking for appropriate input
@@ -104,7 +97,8 @@ public class DAS {
             }
         }
         catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Termination the application due to mistake during runtime");
+            System.exit(1);
         }
     }
 
@@ -112,12 +106,79 @@ public class DAS {
         try {
             byte[] buffer = String.valueOf(number).getBytes();
 
-            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, InetAddress.getByName(BROADCAST_ADDRESS), socket.getLocalPort());
+            //getting broadcast address and handling failure
+            InetAddress broadcastAddress = calculateBroadcastAddress();
+            if (broadcastAddress == null) {
+                System.out.println("Unable to calculate broadcast address");
+                return;
+            }
+
+            //broadcasting message to all user in local network
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, broadcastAddress, socket.getLocalPort());
             socket.setBroadcast(true);
             socket.send(packet);
         }
         catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Broadcasting message went wrong");
+        }
+    }
+
+    private InetAddress calculateBroadcastAddress() {
+        //finding IP address
+        InetAddress localIPAddress;
+        try {
+            localIPAddress = Inet4Address.getLocalHost();
+        } catch (UnknownHostException e) {
+            System.out.println("Unable to find local IP address!");
+            return null;
+        }
+
+        //taking network interface according to the IP address we retrieved
+        NetworkInterface networkInterface;
+        try {
+            networkInterface = NetworkInterface.getByInetAddress(localIPAddress);
+        } catch (SocketException e) {
+            System.out.println("Unable to find corresponding network interface!");
+            return null;
+        }
+
+        //finding proper prefix length for IPv4
+        short prefixLength = -1;
+        for (InterfaceAddress address : networkInterface.getInterfaceAddresses()) {
+            if (address.getAddress() instanceof Inet4Address) {
+                prefixLength = address.getNetworkPrefixLength();
+            }
+        }
+        if (prefixLength == -1) {
+            System.out.println("Couldn't find proper prefix length!");
+            return null;
+        }
+
+        return bitwiseCalculation(localIPAddress, prefixLength);
+    }
+
+    private InetAddress bitwiseCalculation(InetAddress IPAddress, short prefixLength) {
+        //taking byte representation of the ip and subnet mask
+        byte[] IPBytes = IPAddress.getAddress();
+        int subnetMask = -(1 << (32 - prefixLength));
+        byte[] maskBytes = {
+                (byte) ((subnetMask >> 24) & 0xFF),
+                (byte) ((subnetMask >> 16) & 0xFF),
+                (byte) ((subnetMask >> 8) & 0xFF),
+                (byte) (subnetMask & 0xFF)
+        };
+
+        //computing broadcast address
+        byte[] broadcastAddress = new byte[4];
+        for (int i = 0; i < 4; i++) {
+            broadcastAddress[i] = (byte) (IPBytes[i] | ~maskBytes[i]);
+        }
+
+        try {
+            return InetAddress.getByAddress(broadcastAddress);
+        } catch (UnknownHostException e) {
+            System.out.println("Couldn't calculate broadcast address!");
+            return null;
         }
     }
 
@@ -140,7 +201,8 @@ public class DAS {
             System.exit(0);
         }
         catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Termination the application due to mistake during runtime");
+            System.exit(1);
         }
     }
 }
