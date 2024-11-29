@@ -53,6 +53,7 @@ public class DAS {
     private void masterMode(DatagramSocket socket, int number) {
         ArrayList<Integer> receivedNumbers = new ArrayList<>();
         receivedNumbers.add(number);
+        boolean shouldIgnoreAverage = false;
 
         try {
             while (true) {
@@ -63,20 +64,26 @@ public class DAS {
                 //reading information
                 socket.receive(packet);
                 String receivedMessage = new String(packet.getData(), 0, packet.getLength()).trim();
-                int integerMessage = Integer.parseInt(receivedMessage);
+                int integerMessage;
+                try {
+                    integerMessage = Integer.parseInt(receivedMessage);
+                }
+                catch (Exception e) {
+                    System.out.println("Incorrect format of input value!");
+                    continue;
+                }
+
 
                 //processing received information
                 if (integerMessage == 0) {
                     System.out.println("Number " + integerMessage + " received. Counting average value");
                     //counting average number
-                    int avg = 0;
-                    for (int num : receivedNumbers) {
-                        avg += num;
-                    }
-                    avg /= receivedNumbers.size();
+
+                    int avg = countAverage(receivedNumbers);
 
                     //sending computed number to everyone else
                     System.out.println("Broadcasting computed average number: " + avg);
+                    shouldIgnoreAverage = true;
                     broadcastMessage(socket, avg);
                 }
                 else if (integerMessage == -1) {
@@ -90,8 +97,12 @@ public class DAS {
                     System.exit(0);
                 }
                 else {
+                    if (integerMessage == countAverage(receivedNumbers) && shouldIgnoreAverage) {
+                        shouldIgnoreAverage = false;
+                        continue;
+                    }
                     System.out.println("Received number: " + integerMessage);
-                    receivedNumbers.add(Integer.parseInt(receivedMessage));
+                    receivedNumbers.add(integerMessage);
                     System.out.println("Current numbers: " + receivedNumbers);
                 }
             }
@@ -100,6 +111,15 @@ public class DAS {
             System.out.println("Termination the application due to mistake during runtime");
             System.exit(1);
         }
+    }
+
+    private int countAverage(ArrayList<Integer> receivedNumbers) {
+        int avg = 0;
+        for (int num : receivedNumbers) {
+            avg += num;
+        }
+        avg /= receivedNumbers.size();
+        return avg;
     }
 
     private void broadcastMessage(DatagramSocket socket, int number) {
