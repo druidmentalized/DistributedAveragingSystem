@@ -32,7 +32,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/druidmentalized/DistributedAveragingSystem",
-    "accountId": "8dd19c89-8dd9-4aa5-aa11-eb2c0177c453"
+    "accountId": "3943a044-8c5b-460a-8ff1-c9f634e3b7fa"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -44,28 +44,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Run.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/IDEAProjects/JavaFx training&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Run.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/s29871/IdeaProjects/DistributedAveragingSystem/src/main/java/Biktimirov",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\s29871\IdeaProjects\DistributedAveragingSystem\src\main\java\Biktimirov" />
+      <recent name="C:\Users\s29871\IdeaProjects\DistributedAveragingSystem\src\main\java\Danilian" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\s29871\IdeaProjects\DistributedAveragingSystem\src\main\java\Danilian" />
       <recent name="C:\Users\s29871\IdeaProjects\DistributedAveragingSystem\src\main\java\DAS" />
       <recent name="C:\IDEAProjects\DistributedAveragingSystem\src\main\java\main" />
     </key>
@@ -102,6 +107,7 @@
       <workItem from="1732466393218" duration="536000" />
       <workItem from="1732526297384" duration="3541000" />
       <workItem from="1732885865227" duration="307000" />
+      <workItem from="1733131084705" duration="4617000" />
     </task>
     <task id="LOCAL-00001" summary="Program fully made">
       <option name="closed" value="true" />

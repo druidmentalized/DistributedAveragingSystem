@@ -4,8 +4,24 @@ import java.io.IOException;
 import java.net.*;
 import java.util.ArrayList;
 
+/**
+ * The DAS class implements a simple distributed application system that operates
+ * in either MASTER or SLAVE mode depending on the availability of the specified port.
+ * - MASTER mode listens on the specified port for incoming messages, processes them,
+ *   and broadcasts calculated values like the average of received numbers.
+ * - SLAVE mode sends a specified number to the MASTER mode application.
+ * Usage: `java DAS port number`
+ */
 public class DAS {
 
+    /**
+     * The entry point of the application.
+     * Validates input arguments, parses them, and initializes the application.
+     *
+     * @param args Command-line arguments where:
+     *             args[0] specifies the port number (integer between 0 and 65535),
+     *             args[1] specifies a number to process.
+     */
     public static void main(String[] args) {
         //checking for appropriate input
         if (args.length != 2) {
@@ -38,8 +54,13 @@ public class DAS {
         new DAS(port, number);
     }
 
+    /**
+     * Initializes the DAS application and determines the mode of operation (MASTER or SLAVE).
+     *
+     * @param port   The port to be used for communication.
+     * @param number The number to be sent or processed.
+     */
     public DAS(int port, int number) {
-        //deciding mode of the application
         try (DatagramSocket socket = new DatagramSocket(port)) {
             System.out.println("Application entered MASTER mode");
             masterMode(socket, number);
@@ -50,6 +71,13 @@ public class DAS {
         }
     }
 
+    /**
+     * Operates the application in MASTER mode, listening for messages,
+     * processing numbers, and broadcasting results.
+     *
+     * @param socket The DatagramSocket for communication.
+     * @param number The initial number to process.
+     */
     private void masterMode(DatagramSocket socket, int number) {
         ArrayList<Integer> receivedNumbers = new ArrayList<>();
         receivedNumbers.add(number);
@@ -113,6 +141,12 @@ public class DAS {
         }
     }
 
+    /**
+     * Calculates the average of the numbers received.
+     *
+     * @param receivedNumbers The list of received numbers.
+     * @return The calculated average.
+     */
     private int countAverage(ArrayList<Integer> receivedNumbers) {
         int avg = 0;
         for (int num : receivedNumbers) {
@@ -122,6 +156,12 @@ public class DAS {
         return avg;
     }
 
+    /**
+     * Broadcasts a message to all devices in the local network.
+     *
+     * @param socket The DatagramSocket used for communication.
+     * @param number The number to broadcast.
+     */
     private void broadcastMessage(DatagramSocket socket, int number) {
         try {
             byte[] buffer = String.valueOf(number).getBytes();
@@ -143,6 +183,11 @@ public class DAS {
         }
     }
 
+    /**
+     * Calculates the broadcast address based on the local network configuration.
+     *
+     * @return The broadcast address or null if it cannot be determined.
+     */
     private InetAddress calculateBroadcastAddress() {
         //finding IP address
         InetAddress localIPAddress;
@@ -177,6 +222,13 @@ public class DAS {
         return bitwiseCalculation(localIPAddress, prefixLength);
     }
 
+    /**
+     * Performs bitwise calculation to determine the broadcast address.
+     *
+     * @param IPAddress    The local IP address.
+     * @param prefixLength The subnet mask prefix length.
+     * @return The calculated broadcast address.
+     */
     private InetAddress bitwiseCalculation(InetAddress IPAddress, short prefixLength) {
         //taking byte representation of the ip and subnet mask
         byte[] IPBytes = IPAddress.getAddress();
@@ -202,6 +254,12 @@ public class DAS {
         }
     }
 
+    /**
+     * Operates the application in SLAVE mode, sending a number to the MASTER mode application.
+     *
+     * @param port   The port to which the number will be sent.
+     * @param number The number to send.
+     */
     private void slaveMode(int port, int number) {
         String hostname = "localhost";
         try {
