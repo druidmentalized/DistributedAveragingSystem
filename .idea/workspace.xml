@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69cc3e4f-63c0-485f-9ce6-5d3939a7e0bb" name="Changes" comment="">
+    <list default="true" id="69cc3e4f-63c0-485f-9ce6-5d3939a7e0bb" name="Changes" comment="Changed a way of not consuming your own packets with average value">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAS/DAS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAS/DAS.java" afterDir="false" />
     </list>
@@ -21,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -29,12 +35,12 @@
     &quot;assignee&quot;: &quot;druidmentalized&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/druidmentalized/DistributedAveragingSystem",
-    "accountId": "3943a044-8c5b-460a-8ff1-c9f634e3b7fa"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/druidmentalized/DistributedAveragingSystem.git&quot;,
+    &quot;accountId&quot;: &quot;04b989ca-8aaf-40c2-bcb4-aecd80c068d5&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -44,33 +50,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Run.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/s29871/IdeaProjects/DistributedAveragingSystem/src/main/java/Biktimirov",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/IDEAProjects/JavaFx training&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\s29871\IdeaProjects\DistributedAveragingSystem\src\main\java\Biktimirov" />
-      <recent name="C:\Users\s29871\IdeaProjects\DistributedAveragingSystem\src\main\java\Danilian" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\s29871\IdeaProjects\DistributedAveragingSystem\src\main\java\Danilian" />
       <recent name="C:\Users\s29871\IdeaProjects\DistributedAveragingSystem\src\main\java\DAS" />
       <recent name="C:\IDEAProjects\DistributedAveragingSystem\src\main\java\main" />
     </key>
@@ -88,8 +89,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -107,7 +108,9 @@
       <workItem from="1732466393218" duration="536000" />
       <workItem from="1732526297384" duration="3541000" />
       <workItem from="1732885865227" duration="307000" />
-      <workItem from="1733131084705" duration="4617000" />
+      <workItem from="1733211930095" duration="711000" />
+      <workItem from="1733318911066" duration="961000" />
+      <workItem from="1733416828579" duration="3390000" />
     </task>
     <task id="LOCAL-00001" summary="Program fully made">
       <option name="closed" value="true" />
@@ -136,6 +139,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Program fully made" />
-    <option name="LAST_COMMIT_MESSAGE" value="Program fully made" />
+    <MESSAGE value="Changed a way of not consuming your own packets with average value" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed a way of not consuming your own packets with average value" />
   </component>
 </project>

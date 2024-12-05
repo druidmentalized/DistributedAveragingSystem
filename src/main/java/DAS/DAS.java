@@ -81,7 +81,6 @@ public class DAS {
     private void masterMode(DatagramSocket socket, int number) {
         ArrayList<Integer> receivedNumbers = new ArrayList<>();
         receivedNumbers.add(number);
-        boolean shouldIgnoreAverage = false;
 
         try {
             while (true) {
@@ -91,6 +90,13 @@ public class DAS {
 
                 //reading information
                 socket.receive(packet);
+
+                //ignoring the message if it were us who sent it
+                if (Inet4Address.getLocalHost().equals(packet.getAddress())) {
+                    continue;
+                }
+
+                //extracting the message from the packet
                 String receivedMessage = new String(packet.getData(), 0, packet.getLength()).trim();
                 int integerMessage;
                 try {
@@ -111,7 +117,6 @@ public class DAS {
 
                     //sending computed number to everyone else
                     System.out.println("Broadcasting computed average number: " + avg);
-                    shouldIgnoreAverage = true;
                     broadcastMessage(socket, avg);
                 }
                 else if (integerMessage == -1) {
@@ -125,10 +130,6 @@ public class DAS {
                     System.exit(0);
                 }
                 else {
-                    if (integerMessage == countAverage(receivedNumbers) && shouldIgnoreAverage) {
-                        shouldIgnoreAverage = false;
-                        continue;
-                    }
                     System.out.println("Received number: " + integerMessage);
                     receivedNumbers.add(integerMessage);
                     System.out.println("Current numbers: " + receivedNumbers);
@@ -172,6 +173,7 @@ public class DAS {
                 System.out.println("Unable to calculate broadcast address");
                 return;
             }
+            socket.getBroadcast();
 
             //broadcasting message to all user in local network
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length, broadcastAddress, socket.getLocalPort());
