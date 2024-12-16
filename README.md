@@ -10,17 +10,17 @@ The Distributed Averaging System (DAS) is a Java-based application that facilita
 Application after compilation is started through command line with two additional arguments in a way:
 `java DAS <port> <number>`
 Where:
-`<port>` - UDP port number
-`<number>` - Initial number for the application
+- `<port>` - UDP port number
+- `<number>` - Initial number for the application
 
 ## Built with
 - Java & Java.net
 - UDP protocol
 
 ## Project Structure
-`DAS.java` - Entry point of the program
-`src/maim/java/DAS` - Directory of the class
-`README.md` - Project documentation
+- `DAS.java` - Entry point of the program
+- `src/maim/java/DAS` - Directory of the class
+- `README.md` - Project documentation
 
 ## Licence
 This project is licensed under the MIT License
