@@ -21,6 +21,7 @@ Where:
 - `DAS.java` - Entry point of the program
 - `src/maim/java/DAS` - Directory of the class
 - `README.md` - Project documentation
+- `LICENSE` - Project license
 
 ## Licence
 This project is licensed under the MIT License
